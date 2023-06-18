@@ -1,0 +1,27 @@
+.popup__close {
+  background: url(../../../images/popup/CloseIcon.svg);
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  transform: translateY(calc(-100% - 16px));
+  transition: 0.4s;
+  box-sizing: border-box;
+  box-shadow: none;
+  border-style: none;
+}
+
+.popup__close:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 950px) {
+  .popup__close {
+    transform: translate(calc(100% - -8px), calc(-100% - 8px));
+    width: 32px;
+    height: 32px;
+    background: url(../../../images/popup/BigCloseIcon.svg);
+  }
+}

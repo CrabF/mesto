@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./pages/index.css">
+  <title>Mesto</title>
+</head>
+<body class="root">
+  <div class="popup">
+    <div class="popup__container">
+      <p class="popup__title">Редактировать профиль</p>
+      <form class="popup__form" action="">
+        <input class="popup__text" type="text" id="name">
+        <input class="popup__text" type="text" id="job">
+        <input class="popup__save-button" type="submit" value="Сохранить">   
+      </form>
+      <button class="popup__close"></button>
+    </div> 
+  </div>
+    <header class="header"> 
+      <img class="header__logo" src="./images/header/LogoMesto.svg" alt="Логотип Место">
+    </header>
+    <section class="profile">
+      <img class="profile__avatar" src="./images/profile/ded.jpg" alt="Улыбающийся дед">
+      <div class="profile__info">
+        <div class="profile__title">
+          <h1 class="profile__name">Жак-Ив Кусто</h1>
+          <button class="profile__edit"></button>
+        </div>
+        <h2 class="profile__description">Исследователь океана</h2>
+      </div>
+    <button class="profile__add-button"></button> 
+    </section>
+    <main class="photo-gallery">
+      <div class="photo-gallery__item">
+        <img class="photo-gallery__image" src="./images/photo-gallery/tramTracks.jpg" alt="Цветущий маршрут">
+        <div class="photo-gallery__title">
+          <p class="photo-gallery__description">Цветущий маршрут</p>
+          <button class="photo-gallery__like-button"></button>
+        </div>
+      </div>
+      <div class="photo-gallery__item">
+        <img class="photo-gallery__image" src="./images/photo-gallery/whiteTree.jpg" alt="Снежное покрывало">
+        <div class="photo-gallery__title">
+          <p class="photo-gallery__description">Снежное покрывало</p>
+          <button class="photo-gallery__like-button"></button>
+        </div>
+      </div>
+      <div class="photo-gallery__item">
+        <img class="photo-gallery__image" src="./images/photo-gallery/magnolia.jpg" alt="Магнолия">
+        <div class="photo-gallery__title">
+          <p class="photo-gallery__description">Магнолия</p>
+          <button class="photo-gallery__like-button"></button>
+        </div>
+     </div>
+      <div class="photo-gallery__item">
+        <img class="photo-gallery__image" src="./images/photo-gallery/cloudyEvening.jpg" alt="Небо города">
+        <div class="photo-gallery__title">
+          <p class="photo-gallery__description">Небо города</p>
+          <button class="photo-gallery__like-button"></button>
+        </div>
+     </div>
+      <div class="photo-gallery__item">
+        <img class="photo-gallery__image" src="./images/photo-gallery/horse.jpg" alt="Контраст">
+        <div class="photo-gallery__title">
+          <p class="photo-gallery__description">Завтрак</p>
+          <button class="photo-gallery__like-button"></button>
+        </div>
+     </div>
+      <div class="photo-gallery__item">
+        <img class="photo-gallery__image" src="./images/photo-gallery/alone.jpg" alt="Плато Лаго-Наки">
+        <div class="photo-gallery__title">
+          <p class="photo-gallery__description">Плато Лаго-Наки</p>
+          <button class="photo-gallery__like-button"></button>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <p class="footer__copyright">© 2023 Mesto Russia</p>
+    </footer>
+  <script src="./index.js"></script>
+</body>
+</html>

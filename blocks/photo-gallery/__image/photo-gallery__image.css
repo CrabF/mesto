@@ -1,0 +1,8 @@
+.photo-gallery__image {
+  object-fit: cover;
+  object-position: bottom;
+  border-radius: 10px 10px 0px 0px;
+  width: 100%;
+  overflow: hidden;
+  display: block;
+}
