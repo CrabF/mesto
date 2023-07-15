@@ -5,7 +5,7 @@
   right: 0;
   width: 20px;
   height: 20px;
-  transform: translateY(calc(-100% - 16px));
+  transform: translateY(calc(-100% - 16px)) translateX(0);
   transition: 0.4s;
   box-sizing: border-box;
   box-shadow: none;
