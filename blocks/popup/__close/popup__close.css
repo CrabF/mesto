@@ -1,5 +1,5 @@
 .popup__close {
-  background: url(../../../images/popup/CloseIcon.svg);
+  background: url(../../../images/popup/CloseIcon.svg) no-repeat;
   position: absolute;
   top: 0;
   right: 0;
@@ -22,6 +22,6 @@
     transform: translate(calc(100% - -8px), calc(-100% - 8px));
     width: 32px;
     height: 32px;
-    background: url(../../../images/popup/BigCloseIcon.svg);
+    background-size: contain;
   }
 }
