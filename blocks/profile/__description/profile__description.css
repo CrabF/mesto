@@ -1,9 +1,13 @@
 .profile__description {
   font-weight: 400;
   font-size: 14px;
-  line-height: 17px;
   text-align: center;
+  line-height: normal;  
   margin: 14px 0 0 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 20ch;
 }
 
 @media screen and (min-width: 950px) {
@@ -13,4 +17,4 @@
     text-align: start;
     margin-top: 16px;
   }
-}
+} 

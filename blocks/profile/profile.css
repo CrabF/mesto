@@ -1,5 +1,4 @@
 .profile {
-  min-height: 286px;
   min-width: 282px;
   margin-top: 42px;
   box-sizing: border-box;
@@ -8,10 +7,9 @@
   align-items: center;
 }
 
-@media screen and (min-width: 950px){
+@media screen and (min-width: 950px) {
   .profile {
     min-width: 880px;
-    min-height: 120px;
     padding: 0;
     flex-direction: row;
   }

@@ -4,10 +4,13 @@ const closeButton = popup.querySelector('.popup__close');
 
 function openPopup() {
   popup.classList.add('popup_opened');
+  nameInput.value = profileName.textContent;
+  jobInput.value = profileDescription.textContent;
 };
 
 function closePopup() {
   popup.classList.remove('popup_opened');
+  formElement.reset();
 };
 
 editButton.addEventListener('click', openPopup);
@@ -24,7 +27,7 @@ function handleFormSubmit(evt) {
   evt.preventDefault();
   profileName.textContent = nameInput.value;
   profileDescription.textContent = jobInput.value;
+  closePopup();
 }
 
 formElement.addEventListener('submit', handleFormSubmit);
-formElement.addEventListener('submit', closePopup);
