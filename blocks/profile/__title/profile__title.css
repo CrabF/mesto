@@ -1,4 +1,11 @@
 .profile__title {
   display: flex;
   align-items: baseline;
+  height: 26px;
+}
+
+@media screen and (min-width: 950px) {
+  .profile__title {
+    height: 39px;
+  }  
 }
