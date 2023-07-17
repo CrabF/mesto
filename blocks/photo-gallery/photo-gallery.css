@@ -5,6 +5,7 @@
   margin-top: 36px;
   gap: 17px 20px;
   box-sizing: border-box;
+  list-style-type: none;
 }
 
 @media screen and (min-width:950px) {
