@@ -1,0 +1,9 @@
+.gallery-section {
+  margin-top: 36px;
+}
+
+@media screen and (min-width: 950px) {
+  .gallery-section {
+    margin-top: 50px;
+  }
+}
