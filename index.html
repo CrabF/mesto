@@ -25,14 +25,23 @@
     </section>
     <section class="gallery-section">
       <ul class="photo-gallery">
-        <li class="photo-gallery__item">
+        <template id="cards">
+          <li class="photo-gallery__item">
+            <img class="photo-gallery__image" src="" alt="">
+              <div class="photo-gallery__title">
+                <h2 class="photo-gallery__description"></h2>
+                <button class="photo-gallery__like-button" type="button"></button>
+              </div>
+          </li>
+        </template>
+        <!-- <li class="photo-gallery__item">
           <img class="photo-gallery__image" src="./images/photo-gallery/tramTracks.jpg" alt="Цветущий маршрут">
           <div class="photo-gallery__title">
             <h2 class="photo-gallery__description">Цветущий маршрут</h2>
             <button class="photo-gallery__like-button" type="button"></button>
           </div>
-        </li>
-        <li class="photo-gallery__item">
+        </li> -->
+        <!-- <li class="photo-gallery__item">
           <img class="photo-gallery__image" src="./images/photo-gallery/whiteTree.jpg" alt="Снежное покрывало">
           <div class="photo-gallery__title">
             <h2 class="photo-gallery__description">Снежное покрывало</h2>
@@ -66,18 +75,10 @@
             <h2 class="photo-gallery__description">Плато Лаго-Наки</h2>
             <button class="photo-gallery__like-button" type="button"></button>
           </div>
-        </li>
+        </li> -->
       </ul>
     </section>
-    <template id="cards">
-      <li class="photo-gallery__item">
-        <img class="photo-gallery__image" src="" alt="">
-          <div class="photo-gallery__title">
-            <h2 class="photo-gallery__description"></h2>
-            <button class="photo-gallery__like-button" type="button"></button>
-          </div>
-      </li>
-    </template>
+    
   </main>
   <footer class="footer">
     <p class="footer__copyright">© 2023 Mesto Russia</p>
