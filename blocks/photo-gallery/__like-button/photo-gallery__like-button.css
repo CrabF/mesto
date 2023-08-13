@@ -14,11 +14,3 @@
 .photo-gallery__like-button:hover {
   opacity: 0.5;
 }
-
-.photo-gallery__like-button:active {
-  background: url(../../../images/photo-gallery/blacklike.svg);
-}
-
-.photo-gallery__like-button:disabled {
-  background: url(../../../images/photo-gallery/like.svg);
-}
