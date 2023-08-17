@@ -41,7 +41,7 @@
   <footer class="footer">
     <p class="footer__copyright">© 2023 Mesto Russia</p>
   </footer>
-  <div class="popup">
+  <div class="popup" id="editPopup">
     <div class="popup__container">
       <h2 class="popup__title">Редактировать профиль</h2>
       <form class="popup__form" action="#" name="editProfile">
@@ -52,13 +52,25 @@
       <button class="close-button" type="reset"></button>
     </div> 
   </div>
-  <div class="popup-card">
+  <div class="popup" id="addCardPopup">
+    <div class="popup__container">
+      <h2 class="popup__title">Новое место</h2>
+      <form class="popup__form" action="#" name="addCard">
+        <input class="popup__text" type="text" id="title" name="cardTitle" placeholder="Название">
+        <input class="popup__text" type="text" id="link" name="cardLink" placeholder="Ссылка на картинку">
+        <button class="popup__save-button" type="submit">Создать</button> 
+      </form>
+      <button class="close-button" type="reset"></button>
+    </div> 
+  </div>
+  <div class="popup popup-card" id="previewPopup">
     <div class="popup-card__container">
       <img class="popup-card__image" src="#" alt="Изображение">
       <p class="popup-card__title"></p>
       <button class="close-button"></button>
     </div>
   </div>
+  <script src="./scripts/cards.js"></script>
   <script src="./scripts/index.js"></script>
 </body>
 </html>
