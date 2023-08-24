@@ -45,8 +45,10 @@
     <div class="popup__container">
       <h2 class="popup__title">Редактировать профиль</h2>
       <form class="popup__form" action="#" name="editProfile">
-        <input class="popup__text" type="text" id="name" name="personalName" placeholder="Имя">
-        <input class="popup__text" type="text" id="job" name="qualification" placeholder="Специальность">
+        <input class="popup__text" type="text" id="name" name="personalName" placeholder="Имя" required minlength="2" maxlength="40">
+        <span class="popup__error"></span>
+        <input class="popup__text" type="text" id="job" name="qualification" placeholder="Специальность" required minlength="2" maxlength="200">
+        <span class="popup__error"></span>
         <button class="popup__save-button" type="submit">Сохранить</button> 
       </form>
       <button class="close-button" type="reset"></button>
@@ -56,8 +58,10 @@
     <div class="popup__container">
       <h2 class="popup__title">Новое место</h2>
       <form class="popup__form" action="#" name="addCard">
-        <input class="popup__text" type="text" id="title" name="cardTitle" placeholder="Название">
-        <input class="popup__text" type="text" id="link" name="cardLink" placeholder="Ссылка на картинку">
+        <input class="popup__text" type="text" id="title" name="cardTitle" placeholder="Название" required minlength="2" maxlength="30">
+        <span class="popup__error"></span>
+        <input class="popup__text" id="link" name="cardLink" placeholder="Ссылка на картинку" required type="url">
+        <span class="popup__error"></span>
         <button class="popup__save-button" type="submit">Создать</button> 
       </form>
       <button class="close-button" type="reset"></button>
@@ -72,5 +76,6 @@
   </div>
   <script src="./scripts/cards.js"></script>
   <script src="./scripts/index.js"></script>
+  <script src="./scripts/validate.js"></script>
 </body>
 </html>

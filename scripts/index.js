@@ -4,9 +4,19 @@ function closePopup(popup) {
 
 function openPopup(popup){
   popup.classList.add('popup_opened');
+  popup.addEventListener('click', function handleClickOverlay(evt){
+    if (evt.target.classList.contains('popup')){
+      closePopup(evt.target);
+      popup.removeEventListener('click', handleClickOverlay);
+    }
+  })
+  document.addEventListener('keydown', function handleClosePopup(evt) {
+    if (evt.key === 'Escape') {
+      closePopup(popup);
+      document.removeEventListener('keydown', handleClosePopup)
+    }
+  })
 }
-
-
 //Открытие и закрытие попапа редактирования
 //
 
@@ -18,6 +28,7 @@ const jobInput = formEditElement.querySelector('#job');
 const profileName = document.querySelector('.profile__name');
 const profileDescription = document.querySelector('.profile__description');
 const closeEditButton = editPopup.querySelector('.close-button');
+
 
 editButton.addEventListener('click', function(){
   nameInput.value = profileName.textContent;
@@ -84,7 +95,6 @@ function openPreviewCard(item) {
   b.textContent = item.name;
   openPopup(previewPopup);
 };
-
 
 //Рендер всех карточек
 //
