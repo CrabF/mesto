@@ -14,28 +14,8 @@
   outline: none;
 }
 
-.popup__text:first-of-type {
-  margin-bottom: 30px;
-}
-
 @media screen and (min-width: 950px) {
   .popup__text {
     min-width: 358px;
   }
-}
-
-.popup__text_error {
-  border-bottom: 1px solid #F00;
-}
-
-.popup__error {
-  color: #F00;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: normal;
-  visibility: hidden;
-}
-
-.popup__error_visible {
-  visibility: visible;
 }

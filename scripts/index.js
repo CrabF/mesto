@@ -1,5 +1,9 @@
 function closePopup(popup) { 
   popup.classList.remove('popup_opened');
+  const formElement = popup.querySelector('.popup__form');
+  if (formElement) {
+    resetForm(formElement);
+  }
 };
 
 function openPopup(popup){
@@ -60,6 +64,8 @@ const linkInput = formAddCardElement.querySelector('#link');
 const closeAddCardButton = addCardPopup.querySelector('.close-button');
 
 addCardButton.addEventListener('click', function(){
+  titleInput.value = '';
+  linkInput.value = '';
   openPopup(addCardPopup);
 })
 

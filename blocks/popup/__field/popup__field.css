@@ -1,0 +1,12 @@
+.popup__field {
+  display: grid;
+  row-gap: 5px;
+  min-height: 64px;
+  max-width: 238px;
+}
+
+@media screen and (min-width: 950px) {
+  .popup__field {
+    max-width: 358px;
+  }
+}

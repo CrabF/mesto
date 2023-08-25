@@ -1,35 +1,64 @@
-// включение валидации вызовом enableValidation
-// все настройки передаются при вызове
-
 function enableValidation(options) {
   const forms = document.querySelectorAll(options.formSelector);
+  forms.forEach(function(formElement) {
+    setEventListener(formElement);
+  })
+}
 
-  forms.forEach(function(item) {
-    const inputs = item.querySelectorAll(options.inputSelector);
-    const button = item.querySelector(options.submitButtonSelector);
-    inputs.forEach(function(input){
-      input.addEventListener('input', function(evt){
-        validateInput(evt, options)
-      })
+function setEventListener(formElement) {
+  const inputs = formElement.querySelectorAll('.popup__text');
+  inputs.forEach(function(input){
+    input.addEventListener('input', function(){
+      validateInput(input, formElement);
     })
   })
 }
 
-function validateInput(evt, options){
-  const targetInput = evt.target;
-  const textError = evt.target.nextElementSibling;
-  if (!targetInput.validity.valid) {
-    targetInput.classList.add(options.inputErrorClass);
-    textError.classList.add(options.errorClass);
-    textError.textContent = targetInput.validationMessage;
+function validateInput(input, formElement){
+  const isInputValid = input.validity.valid;
+  const textError = formElement.querySelector(`#${input.name}-error`);
+  const button = formElement.querySelector('.popup__save-button');
+  if (!isInputValid) {
+    showError(input, textError);
   } else {
-    targetInput.classList.remove(options.inputErrorClass);
-    textError.classList.remove(options.errorClass);
+    hideError(input, textError);
+  }
+  if (!formElement.checkValidity()) {
+    disableButton(button)
+  } else {
+    enableButton(button)
   }
 }
 
+function showError(input, textError) {
+  input.classList.add('popup__text_error');
+  textError.classList.add('popup__error_visible');
+  textError.textContent = input.validationMessage;
+}
 
+function hideError(input, textError) {
+  input.classList.remove('popup__text_error');
+  textError.classList.remove('popup__error_visible');
+  textError.textContent = input.validationMessage;
+}
 
+function enableButton(button) {
+  button.classList.remove('popup__save-button_disabled');
+}
+
+function disableButton(button) {
+  button.classList.add('popup__save-button_disabled');
+}
+
+function resetForm(formElement) {
+  const inputs = formElement.querySelectorAll('.popup__text');
+  const button = formElement.querySelector('.popup__save-button');
+  enableButton(button);
+  inputs.forEach(function(input){
+    const textError = formElement.querySelector(`#${input.name}-error`);
+    hideError(input, textError);
+  })
+}
 
 enableValidation({
   formSelector: '.popup__form',
@@ -37,6 +66,5 @@ enableValidation({
   submitButtonSelector: '.popup__save-button',
   inactiveButtonClass: 'popup__save-button_disabled',
   inputErrorClass: 'popup__text_error',
-  errorClass: 'popup__error_visible'   //text errro//
+  errorClass: 'popup__error_visible'
 });
-
