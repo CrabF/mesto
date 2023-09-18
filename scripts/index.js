@@ -70,11 +70,8 @@ addCardButton.addEventListener('click', function(){
 
 formAddCardElement.addEventListener('submit', function(evt){
   evt.preventDefault();
-  const card = renderCard({
-    name: titleInput.value,
-    link: linkInput.value
-  });
-  prependCard(card);
+  const newCard = new Card('#cards', titleInput.value, linkInput.value, openPreviewCard);
+  newCard.render(cardsGallery)
   formAddCardElement.reset();
   closePopup(addCardPopup);
 });
@@ -101,53 +98,92 @@ function openPreviewCard(item) {
   openPopup(previewPopup);
 };
 
+const cardsGallery = document.querySelector('.photo-gallery');
+
+const cardsTemplate = document.getElementById('cards');
+
+initialCards.reverse().forEach((item)=>{
+  const newCard = new Card('#cards', item.name, item.link, openPreviewCard);
+  newCard.render(cardsGallery)
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Рендер всех карточек
 //
-const cardsGallery = document.querySelector('.photo-gallery');
-const cardsTemplate = document.getElementById('cards').content;
+// const cardsGallery = document.querySelector('.photo-gallery');
+// const cardsTemplate = document.getElementById('cards').content;
+// console.log(cardsTemplate)
 
-function render(){
-  initialCards.forEach(function(item){
-    const card = renderCard(item);
-    prependCard(card);
-  });
-}
+// const newCard = new Card('ggg', 'wwww', cardsTemplate)
+// console.log(newCard)
 
-function renderCard(item) {
-  const cardsContent = cardsTemplate.cloneNode(true);
-  const imageCard = cardsContent.querySelector('.photo-gallery__image');
-  const titleCard = cardsContent.querySelector('.photo-gallery__description');
-  titleCard.textContent = item.name;
-  imageCard.alt = item.name;
-  imageCard.src = item.link;
-  const likeCardButton = cardsContent.querySelector('.photo-gallery__like-button');
-  likeCardButton.addEventListener('click', likeCard);
-  const deleteCardButtons = cardsContent.querySelector('.photo-gallery__remove-button');
-  deleteCardButtons.addEventListener('click', deleteCard);
-  imageCard.addEventListener('click', function(){
-    openPreviewCard(item);
-  });
-  return cardsContent;
-};
+// function render(){
+//   initialCards.forEach(function(item){
+//     const card = renderCard(item);
+//     prependCard(card);
+//   });
+// }
 
-render();
+// function renderCard(item) {
+//   const cardsContent = cardsTemplate.cloneNode(true);
+//   const imageCard = cardsContent.querySelector('.photo-gallery__image');
+//   const titleCard = cardsContent.querySelector('.photo-gallery__description');
+//   titleCard.textContent = item.name;
+//   imageCard.alt = item.name;
+//   imageCard.src = item.link;
+//   const likeCardButton = cardsContent.querySelector('.photo-gallery__like-button');
+//   likeCardButton.addEventListener('click', likeCard);
+//   const deleteCardButtons = cardsContent.querySelector('.photo-gallery__remove-button');
+//   deleteCardButtons.addEventListener('click', deleteCard);
+//   imageCard.addEventListener('click', function(){
+//     openPreviewCard(item);
+//   });
+//   return cardsContent;
+// };
 
-function prependCard(card){
-  cardsGallery.prepend(card)
-};
+// render();
+
+// function prependCard(card){
+//   cardsGallery.prepend(card)
+// };
 
 //Кнопка удаления
 //
-function deleteCard(evt){
-  const evtTarget = evt.target; 
-  const a = evtTarget.closest('.photo-gallery__item');
-  a.remove();
-}
+// function deleteCard(evt){
+//   const evtTarget = evt.target; 
+//   const a = evtTarget.closest('.photo-gallery__item');
+//   a.remove();
+// }
 
-//Кнопка like
-//
+// //Кнопка like
+// //
 
-function likeCard(evt) {
-  const evtTarget = evt.target;
-  evtTarget.classList.toggle('photo-gallery__like-button_active');
-}
+// function likeCard(evt) {
+//   const evtTarget = evt.target;
+//   evtTarget.classList.toggle('photo-gallery__like-button_active');
+// }
