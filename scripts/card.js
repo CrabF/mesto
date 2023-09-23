@@ -1,5 +1,5 @@
 // Массив данных карточек
-const initialCards = [
+ export const initialCards = [
   {
     name: 'Цветущий маршрут',
     link: './images/photo-gallery/tramTracks.jpg'
@@ -28,7 +28,7 @@ const initialCards = [
 
 // Класс карточек
 
-class Card {
+export class Card {
   constructor (templateSelector, name, link, openPreviewCard) {
     this._templateSelector = templateSelector;
     this._name = name;
@@ -75,104 +75,3 @@ class Card {
     evtTarget.classList.toggle('photo-gallery__like-button_active');
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // _setListener() {
-  //   const likeCardButton = cardsContent.querySelector('.photo-gallery__like-button');
-  //   likeCardButton.addEventListener('click', ()=>{
-  //     _like();
-  //   });
-  //   const deleteCardButtons = cardsContent.querySelector('.photo-gallery__remove-button');
-  //   deleteCardButtons.addEventListener('click', ()=>{
-  //     _delete()
-  //   });
-  // }
-
-  // _like(evt) {
-  //   const evtTarget = evt.target;
-  //   evtTarget.classList.toggle('photo-gallery__like-button_active');
-  // }
-
-  // _delete(evt) {
-  //   const evtTarget = evt.target; 
-  //   const a = evtTarget.closest('.photo-gallery__item');
-  //   a.remove();
-  // }
-// }
-
-
-// //Рендер всех карточек
-// //
-// const cardsGallery = document.querySelector('.photo-gallery');
-// const cardsTemplate = document.getElementById('cards').content;
-
-// function render(){
-//   initialCards.forEach(function(item){
-//     const card = renderCard(item);
-//     prependCard(card);
-//   });
-// }
-
-// function renderCard(item) {
-//   const cardsContent = cardsTemplate.cloneNode(true);
-//   const imageCard = cardsContent.querySelector('.photo-gallery__image');
-//   const titleCard = cardsContent.querySelector('.photo-gallery__description');
-//   titleCard.textContent = item.name;
-//   imageCard.alt = item.name;
-//   imageCard.src = item.link;
-//   const likeCardButton = cardsContent.querySelector('.photo-gallery__like-button');
-//   likeCardButton.addEventListener('click', likeCard);
-//   const deleteCardButtons = cardsContent.querySelector('.photo-gallery__remove-button');
-//   deleteCardButtons.addEventListener('click', deleteCard);
-//   imageCard.addEventListener('click', function(){
-//     openPreviewCard(item);
-//   });
-//   return cardsContent;
-// };
-
-// render();
-
-// function prependCard(card){
-//   cardsGallery.prepend(card)
-// };
-
-// //Кнопка удаления
-// //
-// function deleteCard(evt){
-//   const evtTarget = evt.target; 
-//   const a = evtTarget.closest('.photo-gallery__item');
-//   a.remove();
-// }
-
-// //Кнопка like
-// //
-
-// function likeCard(evt) {
-//   const evtTarget = evt.target;
-//   evtTarget.classList.toggle('photo-gallery__like-button_active');
-// }

@@ -1,3 +1,6 @@
+import {formSelectors, FormValidator} from './formValidator.js'
+import {initialCards, Card} from './card.js'
+
 function closePopup(popup) { 
   popup.classList.remove('popup_opened');
   popup.removeEventListener('click', handleClickOverlay);
@@ -99,91 +102,17 @@ function openPreviewCard(item) {
 };
 
 const cardsGallery = document.querySelector('.photo-gallery');
-
 const cardsTemplate = document.getElementById('cards');
 
-initialCards.reverse().forEach((item)=>{
+//Создание карточек 
+initialCards.forEach((item)=>{
   const newCard = new Card('#cards', item.name, item.link, openPreviewCard);
   newCard.render(cardsGallery)
 })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//Рендер всех карточек
-//
-// const cardsGallery = document.querySelector('.photo-gallery');
-// const cardsTemplate = document.getElementById('cards').content;
-// console.log(cardsTemplate)
-
-// const newCard = new Card('ggg', 'wwww', cardsTemplate)
-// console.log(newCard)
-
-// function render(){
-//   initialCards.forEach(function(item){
-//     const card = renderCard(item);
-//     prependCard(card);
-//   });
-// }
-
-// function renderCard(item) {
-//   const cardsContent = cardsTemplate.cloneNode(true);
-//   const imageCard = cardsContent.querySelector('.photo-gallery__image');
-//   const titleCard = cardsContent.querySelector('.photo-gallery__description');
-//   titleCard.textContent = item.name;
-//   imageCard.alt = item.name;
-//   imageCard.src = item.link;
-//   const likeCardButton = cardsContent.querySelector('.photo-gallery__like-button');
-//   likeCardButton.addEventListener('click', likeCard);
-//   const deleteCardButtons = cardsContent.querySelector('.photo-gallery__remove-button');
-//   deleteCardButtons.addEventListener('click', deleteCard);
-//   imageCard.addEventListener('click', function(){
-//     openPreviewCard(item);
-//   });
-//   return cardsContent;
-// };
-
-// render();
-
-// function prependCard(card){
-//   cardsGallery.prepend(card)
-// };
-
-//Кнопка удаления
-//
-// function deleteCard(evt){
-//   const evtTarget = evt.target; 
-//   const a = evtTarget.closest('.photo-gallery__item');
-//   a.remove();
-// }
-
-// //Кнопка like
-// //
-
-// function likeCard(evt) {
-//   const evtTarget = evt.target;
-//   evtTarget.classList.toggle('photo-gallery__like-button_active');
-// }
+//Валидация карточек
+const formElements = document.querySelectorAll('.popup__form');
+formElements.forEach((form)=>{
+  const validateClass = new FormValidator(formSelectors, form);
+  validateClass.enableValidation();
+})
