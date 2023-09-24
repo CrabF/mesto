@@ -24,8 +24,8 @@ export class Card {
 
   _setEventListeners(imageCard) {
     this._likeButton.addEventListener('click',()=> this._likeCard());
-    const deleteCardButtons = this._view.querySelector('.photo-gallery__remove-button');
-    deleteCardButtons.addEventListener('click',()=> this._deleteCard());
+    const buttonsDeleteCards = this._view.querySelector('.photo-gallery__remove-button');
+    buttonsDeleteCards.addEventListener('click',()=> this._deleteCard());
     imageCard.addEventListener('click', ()=>{
       this._openPreviewCard({
         name: this._name,

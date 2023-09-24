@@ -97,15 +97,15 @@ buttonClosePopupProfile.addEventListener('click', function(){
 //Открытие и закрытие попапа добавления карточки
 //
 
-const addCardPopup = document.querySelector('#addCardPopup');
-const addCardButton = document.querySelector('.profile__add-button');
-const formAddCardElement = addCardPopup.querySelector('.popup__form');
+const popupAddCard = document.querySelector('#popupAddCard');
+const buttonAddCard = document.querySelector('.profile__add-button');
+const formAddCardElement = popupAddCard.querySelector('.popup__form');
 const titleInput = formAddCardElement.querySelector('#title');
 const linkInput = formAddCardElement.querySelector('#link');
-const buttonClosePopupAddCard = addCardPopup.querySelector('.close-button');
+const buttonClosePopupAddCard = popupAddCard.querySelector('.close-button');
 
-addCardButton.addEventListener('click', function(){
-  openPopup(addCardPopup);
+buttonAddCard.addEventListener('click', function(){
+  openPopup(popupAddCard);
 })
 
 formAddCardElement.addEventListener('submit', function(evt){
@@ -113,11 +113,11 @@ formAddCardElement.addEventListener('submit', function(evt){
   const newCard = createCard(titleInput.value, linkInput.value);
   cardsGallery.prepend(newCard.render());
   formAddCardElement.reset();
-  closePopup(addCardPopup);
+  closePopup(popupAddCard);
 });
 
 buttonClosePopupAddCard.addEventListener('click', function(){
-  closePopup(addCardPopup);
+  closePopup(popupAddCard);
 });
 
 //Открытие и закрытие попапа просмотра карточки
@@ -139,7 +139,6 @@ function openPreviewCard(item) {
 };
 
 const cardsGallery = document.querySelector('.photo-gallery');
-const cardsTemplate = document.getElementById('cards');
 
 //Создание карточек 
 function createCard(name, link){
@@ -154,6 +153,6 @@ initialCards.forEach((item)=>{
 //Валидация карточек
 const formElements = document.querySelectorAll('.popup__form');
 formElements.forEach((form)=>{
-  const validateClass = new FormValidator(formSelectors, form);
-  validateClass.enableValidation();
+  const classValidate = new FormValidator(formSelectors, form);
+  classValidate.enableValidation();
 })
