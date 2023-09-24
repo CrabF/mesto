@@ -1,5 +1,6 @@
 .gallery-section {
   margin-top: 36px;
+  min-height: 49vh;
 }
 
 @media screen and (min-width: 950px) {

@@ -1,5 +1,42 @@
-import {formSelectors, FormValidator} from './formValidator.js'
-import {initialCards, Card} from './card.js'
+import {FormValidator} from './formValidator.js'
+import {Card} from './card.js'
+
+//Глобальные переменные
+export const formSelectors = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__text',
+  submitButtonSelector: '.popup__save-button',
+  inactiveButtonClass: 'popup__save-button_disabled',
+  inputErrorClass: 'popup__text_error',
+  errorClass: 'popup__error_visible'
+};
+
+export const initialCards = [
+  {
+    name: 'Цветущий маршрут',
+    link: './images/photo-gallery/tramTracks.jpg'
+  },
+  {
+    name: 'Снежное покрывало',
+    link: './images/photo-gallery/whiteTree.jpg'
+  },
+  {
+    name: 'Магнолия',
+    link: './images/photo-gallery/magnolia.jpg'
+  },
+  {
+    name: 'Небо города',
+    link: './images/photo-gallery/cloudyEvening.jpg'
+  },
+  {
+    name: 'Завтрак',
+    link: './images/photo-gallery/horse.jpg'
+  },
+  {
+    name: 'Плато Лаго-Наки',
+    link: './images/photo-gallery/alone.jpg'
+  }
+];
 
 function closePopup(popup) { 
   popup.classList.remove('popup_opened');
@@ -35,7 +72,7 @@ const nameInput = formEditElement.querySelector('#name');
 const jobInput = formEditElement.querySelector('#job');
 const profileName = document.querySelector('.profile__name');
 const profileDescription = document.querySelector('.profile__description');
-const closeEditButton = editPopup.querySelector('.close-button');
+const buttonClosePopupProfile = editPopup.querySelector('.close-button');
 
 
 editButton.addEventListener('click', function(){
@@ -53,7 +90,7 @@ function handleEditFormSubmit(evt) {
 
 formEditElement.addEventListener('submit', handleEditFormSubmit);
 
-closeEditButton.addEventListener('click', function(){
+buttonClosePopupProfile.addEventListener('click', function(){
   closePopup(editPopup);
 });
 
@@ -65,7 +102,7 @@ const addCardButton = document.querySelector('.profile__add-button');
 const formAddCardElement = addCardPopup.querySelector('.popup__form');
 const titleInput = formAddCardElement.querySelector('#title');
 const linkInput = formAddCardElement.querySelector('#link');
-const closeAddCardButton = addCardPopup.querySelector('.close-button');
+const buttonClosePopupAddCard = addCardPopup.querySelector('.close-button');
 
 addCardButton.addEventListener('click', function(){
   openPopup(addCardPopup);
@@ -73,13 +110,13 @@ addCardButton.addEventListener('click', function(){
 
 formAddCardElement.addEventListener('submit', function(evt){
   evt.preventDefault();
-  const newCard = new Card('#cards', titleInput.value, linkInput.value, openPreviewCard);
-  newCard.render(cardsGallery)
+  const newCard = createCard(titleInput.value, linkInput.value);
+  cardsGallery.prepend(newCard.render());
   formAddCardElement.reset();
   closePopup(addCardPopup);
 });
 
-closeAddCardButton.addEventListener('click', function(){
+buttonClosePopupAddCard.addEventListener('click', function(){
   closePopup(addCardPopup);
 });
 
@@ -89,8 +126,8 @@ closeAddCardButton.addEventListener('click', function(){
 const previewPopup = document.querySelector('#previewPopup');
 const previewPopupImage = previewPopup.querySelector('.popup-card__image');
 const previewPopupTitle = previewPopup.querySelector('.popup-card__title');
-const previewCardCloseButton = previewPopup.querySelector('.close-button');
-previewCardCloseButton.addEventListener('click', function(){
+const buttonClosePreviewPopup = previewPopup.querySelector('.close-button');
+buttonClosePreviewPopup.addEventListener('click', function(){
   closePopup(previewPopup);
 });
 
@@ -105,9 +142,13 @@ const cardsGallery = document.querySelector('.photo-gallery');
 const cardsTemplate = document.getElementById('cards');
 
 //Создание карточек 
+function createCard(name, link){
+  return new Card('#cards', name, link, openPreviewCard)
+}
+
 initialCards.forEach((item)=>{
-  const newCard = new Card('#cards', item.name, item.link, openPreviewCard);
-  newCard.render(cardsGallery)
+  const newCard = createCard(item.name, item.link);
+  cardsGallery.append(newCard.render());
 })
 
 //Валидация карточек
