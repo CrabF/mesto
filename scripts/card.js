@@ -1,9 +1,9 @@
 export class Card {
-  constructor (templateSelector, name, link, openPreviewCard) {
+  constructor (templateSelector, name, link, handleCardClick) {
     this._templateSelector = templateSelector;
     this._name = name;
     this._link = link;
-    this._openPreviewCard = openPreviewCard;
+    this._handleCardClick = handleCardClick;
     this._view = document.querySelector(this._templateSelector).content.cloneNode(true).children[0];
     this._likeButton = this._view.querySelector('.photo-gallery__like-button')
   }
@@ -27,7 +27,7 @@ export class Card {
     const buttonsDeleteCards = this._view.querySelector('.photo-gallery__remove-button');
     buttonsDeleteCards.addEventListener('click',()=> this._deleteCard());
     imageCard.addEventListener('click', ()=>{
-      this._openPreviewCard({
+      this._handleCardClick({
         name: this._name,
         link: this._link
       });
