@@ -5,7 +5,6 @@ export class Popup{
   
   open() {
     this.popup.classList.add('popup_opened');
-    this.setEventListeners()
   }
 
   close() {
@@ -13,14 +12,13 @@ export class Popup{
     this.buttonClosePopup.removeEventListener('click', this.rem.bind(this))
   }
     
-
   _handleEscClose(evt) {
     if (this.popup.classList.contains('popup_opened') && evt.key === 'Escape') {
       this.close();
     }
   }
  
-   rem() {
+  rem() {
     this.close()
   }
 
