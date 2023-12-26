@@ -44,10 +44,11 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html',
-      cache: false
+      template: './src/index.html'
     }),
-    new CleanWebpackPlugin(),
+    new CleanWebpackPlugin({
+      // cache: false
+    }),
     new MiniCssExtractPlugin(),
 
   ]
