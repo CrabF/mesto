@@ -1,3 +1,4 @@
+import '../pages/index.css';
 import { Card } from '../scripts/card.js'
 import { UserInfo } from '../scripts/userInfo.js';
 import { Section } from '../scripts/section.js';
@@ -14,43 +15,37 @@ export const formSelectors = {
   errorClass: 'popup__error_visible'
 };
 
-// // теперь картинки можно импортировать,
-// // вебпак добавит в переменные правильные пути
-// const jordanImage = new URL('./images/jordan.jpg', import.meta.url);
-// const jamesImage = new URL('./images/james.jpg', import.meta.url);
-// const bryantImage = new URL('./images/bryant.jpg', import.meta.url)
-
-// const whoIsTheGoat = [
-//   // меняем исходные пути на переменные
-//   { name: 'Michael Jordan', link: jordanImage },
-//   { name: 'Lebron James', link: jamesImage },
-//   { name: 'Kobe Bryant', link: bryantImage },
-// ];
+const flowerRoute = new URL('../images/photo-gallery/tramTracks.jpg', import.meta.url);
+const snowCover = new URL('../images/photo-gallery/whiteTree.jpg', import.meta.url);
+const Magnolia = new URL('../images/photo-gallery/magnolia.jpg', import.meta.url);
+const sky = new URL('../images/photo-gallery/cloudyEvening.jpg', import.meta.url);
+const breakfast = new URL('../images/photo-gallery/horse.jpg', import.meta.url);
+const plateau = new URL('../images/photo-gallery/alone.jpg', import.meta.url);
 
 export const initialCards = [
   {
     name: 'Цветущий маршрут',
-    link: '../images/photo-gallery/tramTracks.jpg'
+    link: flowerRoute
   },
   {
     name: 'Снежное покрывало',
-    link: '../images/photo-gallery/whiteTree.jpg'
+    link: snowCover
   },
   {
     name: 'Магнолия',
-    link: '../images/photo-gallery/magnolia.jpg'
+    link: Magnolia
   },
   {
     name: 'Небо города',
-    link: '../images/photo-gallery/cloudyEvening.jpg'
+    link: sky
   },
   {
     name: 'Завтрак',
-    link: '../images/photo-gallery/horse.jpg'
+    link: breakfast
   },
   {
     name: 'Плато Лаго-Наки',
-    link: '../images/photo-gallery/alone.jpg'
+    link: plateau
   }
 ];
 
