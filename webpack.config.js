@@ -47,7 +47,6 @@ module.exports = {
       template: './src/index.html'
     }),
     new CleanWebpackPlugin({
-      // cache: false
     }),
     new MiniCssExtractPlugin(),
 
